@@ -6,8 +6,9 @@ enable -f realpath realpath
 dir="$(dirname "$0")"
 envFile=$1
 
-dbdata="$(realpath "$dir/../target/dbdata")"
+dbdata="$dir/../target/dbdata"
 mkdir -p "$dbdata"
+dbdata="$(realpath "$dbdata")"
 
 # shellcheck disable=SC2091
 pushd "$dir" || $(echo "Can't enter directory $dir. Aborting." && exit 1)
